@@ -3,10 +3,11 @@ mod player;
 
 mod prelude {
     pub use bracket_lib::prelude::*;
-    pub const SCREEN_WIDTH: i32 = 80;
-    pub const SCREEN_HEIGHT: i32 = 50;
     pub use crate::map::*;
     pub use crate::player::*;
+    
+    pub const SCREEN_WIDTH: i32 = 80;
+    pub const SCREEN_HEIGHT: i32 = 50;
 }
 
 use prelude::*;
@@ -18,10 +19,10 @@ struct State {
 
 impl State {
     fn new() -> Self {
-        Self {
+        return Self {
             map: Map::new(),
-            player: Player::new(Point { x: 0, y: 0 }),
-        }
+            player: Player::new(Point { x: SCREEN_WIDTH / 2, y: SCREEN_HEIGHT / 2 }),
+        };
     }
 }
 
@@ -35,10 +36,7 @@ impl GameState for State {
 }
 
 fn main() -> BError {
-    let ctx = BTermBuilder::simple80x50()
-        .with_title("Dungeon Crawler")
-        .with_fps_cap(30.0)
-        .build()?;
+    let context = BTermBuilder::simple80x50().with_title("Dungeon Crawler").with_fps_cap(30.0).build()?;
 
-    main_loop(ctx, State::new())
+    return main_loop(context, State::new());
 }

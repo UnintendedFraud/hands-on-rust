@@ -1,5 +1,5 @@
 [package]
-name = "dungeoncrawler"
+name = "rusty-roguelike"
 version = "0.1.0"
 edition = "2021"
 
