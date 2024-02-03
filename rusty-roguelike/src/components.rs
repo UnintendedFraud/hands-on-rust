@@ -8,3 +8,6 @@ pub struct Render {
 
 #[derive(Clone, Debug, Copy, PartialEq)]
 pub struct Player;
+
+#[derive(Clone, Debug, Copy, PartialEq)]
+pub struct Ennemy;
